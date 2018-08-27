@@ -7,10 +7,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace SeleniumTests
+namespace WebAddressbookTests
 {
     [TestFixture]
-    public class Untitled
+    public class GroupCreationTests
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -21,7 +21,7 @@ namespace SeleniumTests
         public void SetupTest()
         {
             FirefoxOptions options = new FirefoxOptions();
-            options.BrowserExecutableLocation = @"ะก:\Program Files\Mozilla Firefox ESR\firefox.exe";
+            options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox ESR\firefox.exe";
             options.UseLegacyImplementation = true;
             driver = new FirefoxDriver(options);
             baseURL = "http://localhost/";
@@ -43,26 +43,67 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheUntitledTest()
+        public void GroupCreationTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "addressbook/");
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys("secret");
-            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
-            driver.FindElement(By.LinkText("groups")).Click();
-            driver.FindElement(By.Name("new")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys("q");
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys("q");
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys("q");
-            driver.FindElement(By.Name("submit")).Click();
-            driver.FindElement(By.LinkText("group page")).Click();
+            OpenHomePage();
+            Login("admin", "secret");
+            GoToGroupsPage();
+            InitNewGroupCreation();
+            FillGroupForm("q", "qwe", "qweq");
+            SubmitGroupCreation();
+            ReturnToGroupsPage();
+            Logout();
+        }
+
+        private void Logout()
+        {
             driver.FindElement(By.LinkText("Logout")).Click();
         }
+
+        private void ReturnToGroupsPage()
+        {
+            driver.FindElement(By.LinkText("group page")).Click();
+        }
+
+        private void SubmitGroupCreation()
+        {
+            driver.FindElement(By.Name("submit")).Click();
+        }
+
+        private void FillGroupForm(string name, string header, string footer)
+        {
+            driver.FindElement(By.Name("group_name")).Clear();
+            driver.FindElement(By.Name("group_name")).SendKeys(name);
+            driver.FindElement(By.Name("group_name")).Clear();
+            driver.FindElement(By.Name("group_name")).SendKeys(header);
+            driver.FindElement(By.Name("group_header")).Clear();
+            driver.FindElement(By.Name("group_header")).SendKeys(footer);
+        }
+
+        private void InitNewGroupCreation()
+        {
+            driver.FindElement(By.Name("new")).Click();
+        }
+
+        private void GoToGroupsPage()
+        {
+            driver.FindElement(By.LinkText("groups")).Click();
+        }
+
+        private void Login(string username, string password)
+        {
+            driver.FindElement(By.Name("user")).Clear();
+            driver.FindElement(By.Name("user")).SendKeys(username);
+            driver.FindElement(By.Name("pass")).Clear();
+            driver.FindElement(By.Name("pass")).SendKeys(password);
+            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+        }
+        
+        private void OpenHomePage()
+        {
+            driver.Navigate().GoToUrl(baseURL + "addressbook/");
+        }
+
         private bool IsElementPresent(By by)
         {
             try
