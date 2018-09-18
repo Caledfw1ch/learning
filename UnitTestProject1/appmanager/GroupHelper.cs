@@ -11,7 +11,7 @@ namespace WebAddressbookTests
 {
     public class GroupHelper : HelperBase
     {
-        private IWebDriver driver;
+        //protected IWebDriver driver;
 
         public GroupHelper(ApplicationManager manager)
             : base(manager)
@@ -20,7 +20,7 @@ namespace WebAddressbookTests
 
         public GroupHelper Create(GroupData group)
         {
-            manager.Groups.InitNewGroupCreation();
+            /*manager.Groups.*/InitNewGroupCreation();
             FillGroupForm(group);
             SubmitGroupCreation();
             return this;
@@ -59,6 +59,13 @@ namespace WebAddressbookTests
         public GroupHelper SelectGroup(int index)
         {
             driver.FindElement(By.XPath("(//input[@name= 'selected[]'])[" + index + "]")).Click();
+            return this;
+        }
+
+        // Это метод
+        public GroupHelper ReturnToGroupsPage()
+        {
+            driver.FindElement(By.LinkText("group page")).Click();
             return this;
         }
     }

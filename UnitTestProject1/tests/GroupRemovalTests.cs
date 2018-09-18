@@ -15,8 +15,8 @@ namespace WebAddressbookTests
             app.Navigator.GoToGroupsPage();
             app.Groups
                 .SelectGroup(1)
-                .RemoveGroup();
-            app.Navigator.GoToGroupsPage();
+                .RemoveGroup()
+                .ReturnToGroupsPage();
             app.Auth.Logout();
         }
     }
