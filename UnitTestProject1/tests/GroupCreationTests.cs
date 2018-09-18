@@ -15,9 +15,7 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("ololo");
             group.Header = "qwe";
             group.Footer = "qwek";
-            app.Navigator.GoToGroupsPage();
             app.Groups.Create(group);
-            app.Navigator.GoToGroupsPage();
         }
 
         [Test]
@@ -26,9 +24,7 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("");
             group.Header = "";
             group.Footer = "";
-            app.Navigator.GoToGroupsPage();
             app.Groups.Create(group);
-            app.Navigator.GoToGroupsPage();
         }
     }
 

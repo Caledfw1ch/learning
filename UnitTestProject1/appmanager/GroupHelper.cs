@@ -13,13 +13,14 @@ namespace WebAddressbookTests
     {
         private IWebDriver driver;
 
-        public GroupHelper(IWebDriver driver) : base(driver)
+        public GroupHelper(ApplicationManager manager)
+            : base(manager)
         {
         }
 
         public GroupHelper Create(GroupData group)
         {
-            InitNewGroupCreation();
+            manager.Groups.InitNewGroupCreation();
             FillGroupForm(group);
             SubmitGroupCreation();
             return this;
@@ -32,14 +33,14 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public GroupHelper FillGroupForm(string name, string header, string footer)
+        public GroupHelper FillGroupForm(GroupData group)
         {
             driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(name);
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(header);
+            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
             driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(footer);
+            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
+            driver.FindElement(By.Name("group_footer")).Clear();
+            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
             return this;
         }
 
