@@ -12,14 +12,14 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
-            //app.Navigator.GoToGroupsPage();   убрал 18.09
-            //app.Groups.InitNewGroupCreation();
+            app.Navigator.GoToGroupsPage();
+            app.Groups.InitNewGroupCreation();
             // инициализация тестовых данных
             GroupData group = new GroupData("ololo");
             group.Header = "qwe";
             group.Footer = "qwek";
 
-            //app.Navigator.GoToGroupsPage();
+            app.Navigator.GoToGroupsPage();
             app.Groups.Create(group);
                 //.FillGroupForm(group)
                 //.SubmitGroupCreation()
