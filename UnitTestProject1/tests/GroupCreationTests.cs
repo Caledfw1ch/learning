@@ -21,9 +21,6 @@ namespace WebAddressbookTests
 
             app.Navigator.GoToGroupsPage();
             app.Groups.Create(group);
-                //.FillGroupForm(group)
-                //.SubmitGroupCreation()
-                //.ReturnToGroupsPage();        убрал 18.09
         }
 
         [Test]
