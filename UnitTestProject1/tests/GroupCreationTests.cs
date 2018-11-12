@@ -6,12 +6,13 @@ using NUnit.Framework;
 
 namespace WebAddressbookTests
 {
-    [TestFixture]
+    [TestFixture]  // Атрибуты, метки. Сделано, чтобы фреймворк догадался, для чего методы.
     public class GroupCreationTests : TestBase
     {
         [Test]
         public void GroupCreationTest()
         {
+            // методы
             app.Navigator.GoToGroupsPage();
             app.Groups.InitNewGroupCreation();
             // инициализация тестовых данных

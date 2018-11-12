@@ -11,13 +11,13 @@ namespace WebAddressbookTests
         private string username;
         private string password;
 
-        public AccountData(string username, string password)
+        public AccountData(string username, string password)  // конструктор
         {
             this.username = username;
             this.password = password;
         }
 
-        public string Username
+        public string Username  // свойство
         {
             get
             {
