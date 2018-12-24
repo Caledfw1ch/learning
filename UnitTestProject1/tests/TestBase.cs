@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class TestBase
+    public class TestBase    // Базовый тестовый класс
     {
         public ApplicationManager app;
 

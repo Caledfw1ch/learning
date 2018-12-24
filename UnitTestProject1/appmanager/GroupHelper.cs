@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class GroupHelper : HelperBase
+    public class GroupHelper : HelperBase   // Хелпер работы с группами
     {
         //protected IWebDriver driver;
 
@@ -25,6 +25,18 @@ namespace WebAddressbookTests
             SubmitGroupCreation();
             ReturnToGroupsPage();
             return this;
+        }
+
+        public List<GroupData> GetGroupList()
+        {
+            List<GroupData> groups = new List<GroupData>();
+            manager.Navigator.GoToGroupsPage();
+            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
+            foreach (IWebElement element in elements)
+            {
+                groups.Add(new GroupData(element.Text));
+            }
+            return groups;
         }
 
         public GroupHelper Modify(int p, GroupData newData)

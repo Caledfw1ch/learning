@@ -11,7 +11,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class ApplicationManager
+    public class ApplicationManager   // Менеджер приложения, управляет хелперами
     {
 
         protected IWebDriver driver;

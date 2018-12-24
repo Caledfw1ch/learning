@@ -10,10 +10,10 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class AuthTestBase : TestBase
+    public class AuthTestBase : TestBase // Аутентификация
     {
         [SetUp]
-        public void SetupLogin()
+        public void SetupLogin() // Логин-пасс
         {
             app = ApplicationManager.GetInstance();
             app.Auth.Login(new AccountData("admin", "secret"));

@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class LoginHelper : HelperBase
+    public class LoginHelper : HelperBase   // Хелпер логина
     {
         
 

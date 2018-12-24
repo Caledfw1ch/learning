@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class NavigationHelper : HelperBase
+    public class NavigationHelper : HelperBase    // Хелпер навигации
     {
         public string baseURL;
 
@@ -19,16 +19,23 @@ namespace WebAddressbookTests
             this.baseURL = baseURL;
         }
         // this - ссылка на текущий объект, в текущий объект его поля помещает значение переданное в качестве параметра (без этого это будет локальная переменная)
-        public NavigationHelper GoToHomePage()
+        public void GoToHomePage()
         {
+            if (driver.Url == baseURL + "/addressbook/")
+            {
+                return;
+            }
             driver.Navigate().GoToUrl(baseURL + "/addressbook/");
-            return this;
         }
 
-        public NavigationHelper GoToGroupsPage()
+        public void GoToGroupsPage()
         {
+            if (driver.Url == baseURL + "/addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
             driver.FindElement(By.LinkText("groups")).Click();
-            return this;
         }
     }
 }
