@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebAddressbookTests
+namespace GeometaTests
 {
     public class TestBase // Базовый тестовый класс
     {
@@ -23,7 +23,7 @@ namespace WebAddressbookTests
         public void SetupApplicationManager()
         {
             app = ApplicationManager.GetInstance();
-           app.Auth.Login(new AccountData("admin", "secret"));    // данные
+           app.Auth.Login(new AccountData("Akeller", "Akeller123$"));    // данные
         }
     }
 }

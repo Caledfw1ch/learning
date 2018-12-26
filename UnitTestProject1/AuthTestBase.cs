@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebAddressbookTests
+namespace GeometaTests
 {
     public class AuthTestBase : TestBase // Аутентификация
     {
@@ -21,7 +21,7 @@ namespace WebAddressbookTests
         public void SetupLogin() // Логин-пасс
         {
             app = ApplicationManager.GetInstance();
-            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Auth.Login(new AccountData("Akeller", "Akeller123$"));
         }
     }
 }

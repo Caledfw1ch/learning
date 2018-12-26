@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebAddressbookTests
+namespace GeometaTests
 {
     public class GroupHelper : HelperBase   // Хелпер работы с группами
     {

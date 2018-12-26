@@ -5,7 +5,7 @@ using System.Threading;
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace WebAddressbookTests
+namespace GeometaTests
 {
     [TestFixture]  // Атрибуты, метки. Сделано, чтобы фреймворк догадался, для чего методы.
     public class GroupCreationTests : AuthTestBase

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace WebAddressbookTests
+namespace GeometaTests
 {
     [TestFixture]
     public class GroupModificationTests : AuthTestBase
