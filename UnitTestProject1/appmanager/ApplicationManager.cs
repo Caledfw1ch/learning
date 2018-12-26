@@ -11,7 +11,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class ApplicationManager   // Менеджер приложения, управляет хелперами
+    public class ApplicationManager   // Менеджер приложения, управляет хэлперами
     {
 
         protected IWebDriver driver;
@@ -67,7 +67,7 @@ namespace WebAddressbookTests
             }
         }
 
-        public LoginHelper Auth
+        public LoginHelper Auth    // хэлпер аутентификации
         {
             get
             {
@@ -75,7 +75,7 @@ namespace WebAddressbookTests
             }
         }
 
-        public NavigationHelper Navigator
+        public NavigationHelper Navigator   // хэлпер навигации
         {
             get
             {
@@ -83,7 +83,7 @@ namespace WebAddressbookTests
             }
         }
 
-        public GroupHelper Groups
+        public GroupHelper Groups   // хэлпер групп
         {
             get
             {

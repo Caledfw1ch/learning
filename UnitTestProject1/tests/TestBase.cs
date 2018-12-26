@@ -10,15 +10,20 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class TestBase    // Базовый тестовый класс
+    public class TestBase // Базовый тестовый класс
     {
         public ApplicationManager app;
+
+        //public TestBase()                       //  Андрей
+        //{
+        //    SetupApplicationManager();
+        //}
 
         [SetUp]
         public void SetupApplicationManager()
         {
             app = ApplicationManager.GetInstance();
-            app.Auth.Login(new AccountData("admin", "secret"));
+           app.Auth.Login(new AccountData("admin", "secret"));    // данные
         }
     }
 }

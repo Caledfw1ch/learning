@@ -12,6 +12,11 @@ namespace WebAddressbookTests
 {
     public class AuthTestBase : TestBase // Аутентификация
     {
+        //public AuthTestBase() : base()    Андрей
+        //{
+
+        //}
+
         [SetUp]
         public void SetupLogin() // Логин-пасс
         {

@@ -20,7 +20,7 @@ namespace WebAddressbookTests
             driver = manager.Driver;
         }
 
-        public void Type(By locator, string text)
+        public void Type(By locator, string text)    // очищает поле, пишет текст
         {
             if (text != null)
             {
@@ -28,14 +28,14 @@ namespace WebAddressbookTests
                 driver.FindElement(locator).SendKeys(text);
             }
         }
-        public bool IsElementPresent(By by)
+        public bool IsElementPresent(By by)   // существует ли объект?
         {
             try
             {
                 driver.FindElement(by);
                 return true;
             }
-            catch (NoSuchElementException)
+            catch (NoSuchElementException)    // эксепшн, если нет объекта
             {
                 return false;
             }
